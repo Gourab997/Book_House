@@ -49,28 +49,37 @@ const displayResult = books => {
 
     } else {
         bookAll?.forEach(book => {
-            const div = document.createElement('div')
-            div.classList = "container "
-            div.innerHTML = `
 
-        <div class="card "w-50 ">
-                <img src="https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg" class="image-result" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">${book.title}</h5>
-                    <p class="card-text fs-6">By ${book.author_name ? book.author_name : ''}</p>
-                    <p class="card-text">First published in ${book.first_publish_year ? book.first_publish_year : ' '}</p>
-                    
-                </div>
-        
-        `
+            if (typeof (book.author_name) !== "undefined") {
+                const div = document.createElement('div')
+                div.classList = "container card-group"
+                div.innerHTML = `
 
-            displayDiv.appendChild(div)
+    <div class="card "w-50 ">
+            <img src="https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg" class="image-result" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">${book.title}</h5>
+                
+                <p class="card-text fs-6">By ${book.author_name[0] ? book.author_name[0] : ''}</p>
+                <p class="card-text">First published in ${book.first_publish_year ? book.first_publish_year : ' '}</p>
+                <p class="card-text fs-6">Publisher: ${book.publisher ? book.publisher : ' '}</p>
+                
+            </div>
+    
+    `
+
+                displayDiv.appendChild(div)
+                displayBooks('grid')
+            }
+
+
 
 
         });
-        displayBooks('grid')
-        displaySpinner('none')
     }
 
 
+    displaySpinner('none')
 }
+
+
