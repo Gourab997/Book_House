@@ -36,7 +36,7 @@ const displayResult = books => {
     const displayDiv = document.getElementById('search-result')
     const displayCountDiv = document.getElementById('total-count')
 
-    displayCountDiv.innerHTML = `<p class= d-block> Search result  ${books.numFound} founds </p> `
+    displayCountDiv.innerHTML = `<p class= " text-center fs-3 text-success fw-bold " > Search result <span class="text-warning"> ${books.numFound} </span> founds </p> `
 
     if (bookAll.length === 0) {
 
