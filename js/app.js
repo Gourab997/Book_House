@@ -7,7 +7,7 @@ const loadBook = () => {
     displaySpinner('block')
 
     try {
-        fetch(`http://openlibrary.org/search.json?q=${searchText}`)
+        fetch(`https://openlibrary.org/search.json?q=${searchText}`)
             .then(res => res.json())
             .then(data => displayResult(data))
     }
@@ -36,7 +36,7 @@ const displayResult = books => {
     const displayDiv = document.getElementById('search-result')
     const displayCountDiv = document.getElementById('total-count')
 
-    displayCountDiv.innerHTML = `<p class= " text-center fs-3 fst-italic text-success fw-bold " > Search result <span class="text-warning"> ${books.numFound} </span> founds <br> showing of  <span class="text-danger">${bookAll.length} <span> </p> `
+    displayCountDiv.innerHTML = `<p class= " text-center fs-3 fst-italic text-success fw-bold " > Search result  founds <span class="text-warning"> ${books.numFound} </span> <br> showing of  <span class="text-danger">${bookAll.length} <span> </p> `
 
     if (bookAll.length === 0) {
 
@@ -66,9 +66,9 @@ const displayResult = books => {
                 <div class="card-body">
                     <h5 class="card-title">${book.title}</h5>
                     
-                    <p class="card-text fs-6">By ${book.author_name[0] ? book.author_name[0] : ''}</p>
-                    <p class="card-text">First published in ${book.first_publish_year ? book.first_publish_year : ' '}</p>
-                    <p class="card-text fs-6">Publisher: ${book.publisher ? book.publisher : ' '}</p>
+                    <p class="card-text  fs-6">By <span class="fst-italic text-danger"> ${book.author_name[0] ? book.author_name[0] : ''} </span></p>
+                    <p class="card-text">First published in <span class="text-primary"> ${book.first_publish_year ? book.first_publish_year : ' not available '}  </span></p>
+                    <p class="card-text fs-6">Publisher: <span class=" text-success"> ${book.publisher ? book.publisher : ' '} </span></p>
                     
                 </div>
         
