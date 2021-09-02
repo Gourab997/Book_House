@@ -68,7 +68,7 @@ const displayResult = books => {
                     
                     <p class="card-text  fs-6">By <span class="fst-italic text-danger"> ${book.author_name[0] ? book.author_name[0] : ''} </span></p>
                     <p class="card-text">First published in <span class="text-primary"> ${book.first_publish_year ? book.first_publish_year : ' not available '}  </span></p>
-                    <p class="card-text fs-6">Publisher: <span class=" text-success"> ${book.publisher ? book.publisher : ' '} </span></p>
+                    <p class="card-text fs-6">Publisher: <span class=" text-success"> ${book.publisher ? book.publisher : 'not available '} </span></p>
                     
                 </div>
         
