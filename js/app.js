@@ -36,7 +36,7 @@ const displayResult = books => {
     const displayDiv = document.getElementById('search-result')
     const displayCountDiv = document.getElementById('total-count')
 
-    displayCountDiv.innerHTML = `<p class= " text-center fs-3 text-success fw-bold " > Search result <span class="text-warning"> ${books.numFound} </span> founds </p> `
+    displayCountDiv.innerHTML = `<p class= " text-center fs-3 fst-italic text-success fw-bold " > Search result <span class="text-warning"> ${books.numFound} </span> founds <br> showing of  <span class="text-danger">${bookAll.length} <span> </p> `
 
     if (bookAll.length === 0) {
 
@@ -48,29 +48,40 @@ const displayResult = books => {
         displaySpinner('none')
 
     } else {
+
+
         bookAll?.forEach(book => {
 
             if (typeof (book.author_name) !== "undefined") {
+
+
+
+
                 const div = document.createElement('div')
                 div.classList = "container card-group"
                 div.innerHTML = `
-
-    <div class="card "w-50 ">
-            <img src="https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg" class="image-result" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">${book.title}</h5>
-                
-                <p class="card-text fs-6">By ${book.author_name[0] ? book.author_name[0] : ''}</p>
-                <p class="card-text">First published in ${book.first_publish_year ? book.first_publish_year : ' '}</p>
-                <p class="card-text fs-6">Publisher: ${book.publisher ? book.publisher : ' '}</p>
-                
-            </div>
     
-    `
+        <div class="card "w-50 ">
+                <img src="https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg" class="image-result" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">${book.title}</h5>
+                    
+                    <p class="card-text fs-6">By ${book.author_name[0] ? book.author_name[0] : ''}</p>
+                    <p class="card-text">First published in ${book.first_publish_year ? book.first_publish_year : ' '}</p>
+                    <p class="card-text fs-6">Publisher: ${book.publisher ? book.publisher : ' '}</p>
+                    
+                </div>
+        
+        `
 
                 displayDiv.appendChild(div)
                 displayBooks('grid')
+
+
+
+
             }
+
 
 
 
