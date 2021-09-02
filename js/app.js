@@ -6,6 +6,7 @@ const loadBook = () => {
     displayBooks('none')
     displaySpinner('block')
 
+    //loading data from api
     try {
         fetch(`https://openlibrary.org/search.json?q=${searchText}`)
             .then(res => res.json())
@@ -38,6 +39,8 @@ const displayResult = books => {
 
     displayCountDiv.innerHTML = `<p class= " text-center fs-3 fst-italic text-success fw-bold " > Search result  founds <span class="text-warning"> ${books.numFound} </span> <br> showing of  <span class="text-danger">${bookAll.length} <span> </p> `
 
+    //checking book length
+
     if (bookAll.length === 0) {
 
         const h3 = document.createElement('h3')
@@ -53,9 +56,6 @@ const displayResult = books => {
         bookAll?.forEach(book => {
 
             if (typeof (book.author_name) !== "undefined") {
-
-
-
 
                 const div = document.createElement('div')
                 div.classList = "container card-group"
@@ -77,13 +77,7 @@ const displayResult = books => {
                 displayDiv.appendChild(div)
                 displayBooks('grid')
 
-
-
-
             }
-
-
-
 
 
         });

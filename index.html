@@ -17,10 +17,11 @@
 
 <body style="background-color: #E1DCC5;">
 
-
     <main>
 
         <h1 class="text-center pt-5 fw-bold text-info  "> Book <span class="text-primary"> House </span> </h1>
+
+        <!-- search button -->
         <div class="container">
             <div class="input-group mb-3    mx-auto my-5">
                 <input id="search-input" type="text" class="form-control " placeholder="Search by Bookname"
@@ -30,10 +31,13 @@
             </div>
         </div>
         <div id="total-count" class="container "></div>
+
+        <!-- adding spinner -->
         <div id="spinner" class="spinner-border text-info container align-items-center" role="status"
             style="display: none;">
             <span class="visually-hidden">Loading...</span>
         </div>
+        <!-- spinner results -->
         <div id="search-result" class="container  show-result">
 
         </div>
